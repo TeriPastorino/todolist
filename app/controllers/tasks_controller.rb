@@ -21,6 +21,16 @@ class TasksController < ApplicationController
   def show
   end
 
+  def archive
+    @task = Task.find(params[:id])
+    @task.archived = 1
+    if @task.save
+      render json: {:success => true, :task => @task}
+    else
+      render json: {:success => false}
+    end
+  end
+
   def destroy
   end
 end
