@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
-
+    @tasks = Task.all
+    render :partial => 'index'
   end
 
   def create
@@ -15,10 +16,7 @@ class TasksController < ApplicationController
   def update
   end
 
-  def index
-    @tasks = task.all
-    render :partial => 'index'
-  end
+  
 
   def show
   end
